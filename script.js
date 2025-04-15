@@ -27,9 +27,13 @@ function updateBoard(){
 
 function createNewBoard(){
     userInput = parseInt(prompt('Choose a size for your board'));
-    if (userInput > 50){
-        userInput = prompt('Please choose a grid between 1 and 50');
-    } else if(userInput)
+    if(isNaN(userInput)) {
+        userInput = prompt('Please type a number btween 1 and 50: ');
+    } else if (userInput > 50){
+        userInput = prompt('Please enter a size between 1 and 50: ');
+    } else if(userInput <= 0) {
+        userInput = prompt('Please enter a larger size: ');
+    }
     updateBoard();
     createBoard(userInput);
 };
