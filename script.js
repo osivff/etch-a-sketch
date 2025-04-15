@@ -14,7 +14,7 @@ function createBoard(size) {
             row.appendChild(col);
         }
     }
-}
+};
 
 createBoard(userInput);
 
@@ -23,18 +23,25 @@ function updateBoard(){
     for(i = 0; i <= row.length - 1; i++){
         section.removeChild(row[i]);
     }
-    
-}
+};
 
-sizeBtn.addEventListener('click', () => {
+function createNewBoard(){
     userInput = parseInt(prompt('Choose a size for your board'));
     if (userInput > 50){
         userInput = prompt('Please choose a grid between 1 and 50');
-    }
+    } else if(userInput)
     updateBoard();
     createBoard(userInput);
-});
+};
 
+function eraseCol(){
+    let col = document.querySelectorAll('.col');
+    for(i = 0; i <= col.length -1; i++){
+        col[i].style.backgroundColor = 'white';
+    }
+};
+
+sizeBtn.addEventListener('click', createNewBoard);
 
 section.addEventListener('mouseover', (e) => {
     if(e.target.className === 'col') {
@@ -42,10 +49,4 @@ section.addEventListener('mouseover', (e) => {
     }
 });
 
-erase.addEventListener('click', () => {
-    let col = document.querySelectorAll('.col');
-    for(i = 0; i <= col.length -1; i++){
-        col[i].style.backgroundColor = 'white';
-    }
-    console.log(col);
-});
+erase.addEventListener('click', eraseCol);
