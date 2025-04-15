@@ -1,4 +1,4 @@
-const section = document.querySelector('section');
+const container = document.querySelector('.container');
 const erase = document.querySelector('.erase');
 const sizeBtn = document.querySelector('.btn-size');
 let userInput = 16;
@@ -7,7 +7,7 @@ function createBoard(size) {
     for(i = 0; i < size; i++){
         const row = document.createElement('div');
         row.setAttribute('class', 'row');
-        section.appendChild(row);
+        container.appendChild(row);
         for(j = 0; j < size; j++){
             const col = document.createElement('div');
             col.setAttribute('class', 'col');
@@ -21,7 +21,7 @@ createBoard(userInput);
 function updateBoard(){
     const row = document.querySelectorAll('.row');
     for(i = 0; i <= row.length - 1; i++){
-        section.removeChild(row[i]);
+        container.removeChild(row[i]);
     }
 };
 
@@ -55,7 +55,7 @@ sizeBtn.addEventListener('click', createNewBoard);
 let initialNum = 0.1
 let currentOpacity = parseFloat(initialNum.toFixed(1)); 
 
-section.addEventListener('mouseover', (e) => {
+container.addEventListener('mouseover', (e) => {
     if(e.target.className === 'col') {
         let red = randomColor();
         let green = randomColor();
