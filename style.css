@@ -1,6 +1,9 @@
 main, header {
-    width: 50%;
+    width: 80%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
@@ -9,16 +12,13 @@ h1 {
 }
 
 .erase, .btn-size {
-    width: 50%;
-    display: inline-block;
+    width: 15%;
+    margin: 0.5rem;
     background-color: salmon;
     color: white;
     padding: 0.6rem;
     font-size: 1.5rem;
     border-radius: 10px;
-    position: relative;
-    left: 25%;
-    margin: 0.5rem;
 }
 
 div {
