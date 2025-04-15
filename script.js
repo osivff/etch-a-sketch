@@ -28,6 +28,9 @@ function updateBoard(){
 
 sizeBtn.addEventListener('click', () => {
     userInput = parseInt(prompt('Choose a size for your board'));
+    if (userInput > 50){
+        userInput = prompt('Please choose a grid between 1 and 50');
+    }
     updateBoard();
     createBoard(userInput);
 });
