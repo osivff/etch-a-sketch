@@ -1,5 +1,5 @@
 const section = document.querySelector('section');
-const erase = document.querySelector('button');
+const erase = document.querySelector('.erase');
 
 for(i = 0; i <= 15; i++){
     const row = document.createElement('div');
@@ -25,6 +25,3 @@ erase.addEventListener('click', () => {
         col[i].style.backgroundColor = 'white';
     }
 });
-
-
-
