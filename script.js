@@ -29,15 +29,16 @@ function updateBoard(){
 
 function createNewBoard(){
     userInput = parseInt(prompt('Choose a size for your board'));
-    if(isNaN(userInput)) {
+    if(isNaN(userInput) || userInput === undefined) {
         userInput = prompt('Please type a number between 1 and 100: ');
     } else if (userInput > 100){
         userInput = prompt('The number is too big. Enter a num between 1 and 100: ');
     } else if(userInput <= 0) {
         userInput = prompt('The number is too small. Please type a number between 1 and 100: ');
+    } else {
+        updateBoard();
+        createBoard(userInput);
     }
-    updateBoard();
-    createBoard(userInput);
 };
 
 function eraseCol(){
