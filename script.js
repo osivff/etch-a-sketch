@@ -1,6 +1,8 @@
 const container = document.querySelector('.container');
-const erase = document.querySelector('.erase');
+const clearCanvas = document.querySelector('.clear-canvas');
 const sizeBtn = document.querySelector('.btn-size');
+const blackBtn = document.querySelector('.black-btn');
+const rainbowBtn = document.querySelector('.rainbow-btn');
 let userInput = 16;
 
 function createBoard(size) {
@@ -28,11 +30,11 @@ function updateBoard(){
 function createNewBoard(){
     userInput = parseInt(prompt('Choose a size for your board'));
     if(isNaN(userInput)) {
-        userInput = prompt('Please type a number btween 1 and 50: ');
-    } else if (userInput > 50){
-        userInput = prompt('The number is too big. Enter a num between 1 adn 50: ');
+        userInput = prompt('Please type a number between 1 and 100: ');
+    } else if (userInput > 100){
+        userInput = prompt('The number is too big. Enter a num between 1 and 100: ');
     } else if(userInput <= 0) {
-        userInput = prompt('Please enter a larger size: ');
+        userInput = prompt('The number is too small. Please type a number between 1 and 100: ');
     }
     updateBoard();
     createBoard(userInput);
@@ -52,22 +54,31 @@ function randomColor(){
 
 sizeBtn.addEventListener('click', createNewBoard);
 
-let initialNum = 0.1
-let currentOpacity = parseFloat(initialNum.toFixed(1)); 
-
 container.addEventListener('mouseover', (e) => {
-    if(e.target.className === 'col') {
-        let red = randomColor();
-        let green = randomColor();
-        let blue = randomColor(); 
-        let addNumber = 0.1;
-        if(currentOpacity >= 0.1 && currentOpacity <= 0.9){
-            e.target.style.backgroundColor = `rgba(${red}, ${green}, ${blue}, ${currentOpacity})`;
-            currentOpacity = currentOpacity + parseFloat(addNumber.toFixed(1));
-        } else{
-            currentOpacity = parseFloat(initialNum.toFixed(1));
-        };
-    };
+    if(e.target.className === 'col'){
+        e.target.style.backgroundColor = 'black';
+    }
 });
 
-erase.addEventListener('click', eraseCol);
+blackBtn.addEventListener('click', () => {
+    container.addEventListener('mouseover', (e) => {
+        if(e.target.className === 'col'){
+            e.target.style.backgroundColor = 'black';
+        }
+    })
+})
+
+rainbowBtn.addEventListener('click', () => {
+    container.addEventListener('mouseover', (e) => {
+        if(e.target.className === 'col') {
+            let red = randomColor();
+            let green = randomColor();
+            let blue = randomColor(); 
+                e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+        };
+    });
+});
+
+
+
+clearCanvas.addEventListener('click', eraseCol);
