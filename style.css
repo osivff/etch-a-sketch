@@ -1,19 +1,57 @@
-main, header {
-    max-height: 85vh;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Play:wght@400;700&family=VT323&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: radial-gradient( circle farthest-corner at 48.4% 47.5%,  rgba(122,183,255,1) 0%, rgba(21,83,161,1) 90% );
+
+}
+
+header {
+    height: 15vh;
+    background: #e04848;
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    
+
 }
 
 h1 {
+    padding: 2.5rem;
     text-align: center;
-    margin: 1rem auto;
+    font-family: "Bangers", system-ui;
+    font-size: 3rem;
+    color: rgba(0, 0, 0, 0.756);
+    text-shadow: 2px 2px 2px rgb(255, 255, 255);
+}
+
+main {
+    max-height: 85vh;
+    width: 60%;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .container {
     height: 680px;
     width: 680px;
+    border: 20px solid rgba(255, 255, 255, 0.415);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.262);
     aspect-ratio: 1/1;
     display: flex;
     flex-direction: column;
@@ -28,17 +66,37 @@ h1 {
 
 .col {
     flex: 1;
-    border: 1px solid rgb(122, 121, 121);
+    border: 1px solid rgb(244, 243, 243);
     background-color: rgba(255, 255, 255, 1);
 }
 
-.erase, .btn-size {
-    display: inline-block;
-    width: 15%;
-    margin: 0.5rem;
-    background-color: salmon;
+.clear-canvas, .btn-size, .black-btn, .rainbow-btn {
+    width: 40%;
+    margin: 0.5rem;    
     color: white;
     padding: 0.6rem;
     font-size: 1.5rem;
-    border-radius: 10px;
+    border-radius: 15px;
+    font-family: "Play", sans-serif;
+
+}
+
+.clear-canvas, .btn-size {
+    background: #ebe8e9;
+    background: radial-gradient(circle, rgba(235, 232, 233, 1) 0%, rgba(235, 225, 225, 0.75) 100%);
+    color: black;   
+}
+
+.rainbow-btn {
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+}
+
+.black-btn {
+    background-color: rgb(0, 0, 0);
+}
+
+button:hover {
+    opacity: 0.7;
+    cursor: pointer;
 }
